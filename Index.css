@@ -89,8 +89,8 @@ body{
     width: 200px;
     height: 200px;
     position: absolute;
-    top: 70%;
-    left: 52%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     animation: zoomInOut 3s infinite alternate;
   }
@@ -179,8 +179,8 @@ body{
 }
 
 .footer-basic img {
-    width: 10%;
-    height: 9%;
+    width: 7%;
+    height: 5%;
     margin-left: 80%;
     margin-top: -12%;
 }
@@ -234,7 +234,28 @@ body {
     text-align: justify;
  }
 
+ .Tutorial-conteiner{
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: aliceblue;
+    flex-direction: column;
+ }
 
+ #tutorial-title{
+    position: relative;
+    left: -25px;
+    
+    
+ }
+
+ #tutorial-real{
+    
+    position: relative;
+    top: 50px;
+    right: 122px;
+ }
 
  #Lua-title{
     display: flex;
@@ -302,8 +323,28 @@ body {
 }
 
 .pedra {
-    left: 70%; /* Ajuste a posição horizontal da pedra conforme necessário */
-    transform: translateX(-50%); /* Centraliza a pedra horizontalmente */
-    width: 50px; /* Ajuste o tamanho da pedra conforme necessário */
-    height: auto;
+    width: 120px; /* Defina o tamanho da pedra conforme necessário */
+    height: 120px; /* Defina o tamanho da pedra conforme necessário */
+    position: absolute;
+    top: 0;
+    z-index: 10; /* Certifique-se de que está acima de outros elementos */
+    animation-name: cair;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    background-image: url('Fotos/Pedra.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover; /* Isso garantirá que a imagem cubra todo o elemento */
+}
+
+@keyframes cair {
+    from { top: 0; }
+    to { top: 107vh; } /* Queda até o fim da janela */
+}
+
+.score {
+    position: absolute;
+    top: 320px; /* Ajuste a posição vertical do texto */
+    right: 10px; /* Ajuste a posição horizontal do texto */
+    color: white; /* Cor do texto */
+    font-size: 30px; /* Tamanho da fonte */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }

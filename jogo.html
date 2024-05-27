@@ -78,12 +78,16 @@
         <h1 class="werePhonk">WerePhonk - Alpha</h1>
     </div>
 
-
     <div class="floresta-container">
         <img src="Fotos/floresta.webp" alt="Floresta" class="floresta-img">
         <img src="Fotos/rapaz-unscreen (1) (1).gif" alt="Lobisomem" class="lobisomem">
-        <img src="Fotos/preda2.webp" alt="Pedra" class="pedra">
     </div>
+
+    <div class="Tutorial-conteiner">
+        <h1 id="tutorial-title">Como Jogar?</h1>
+        <p id\="tutorial-real">Use A e D para mover o lobisomem para os lados. Evite as pedras!</p>
+    </div>
+    
     
 <style>
 
@@ -120,13 +124,39 @@
 </div>
 
 <script src="jogo.js"></script>
+<script src="Fotos/Pedra.png"></script>
         <div class="button-jogar-conteiner\">
             <a href="Index.html" class="button-jogar">SAIR</a>
     
     
         </div>
 
+        <script>
+            function criarPedra() {
+            const pedra = document.createElement("div");
+            pedra.className = "stone";
+            pedra.style.left = Math.random() * window.innerWidth + "px";
+            document.querySelector(".game-container").appendChild(pedra);
 
+            // Animação de queda
+            const velocidadeQueda = 2; // Pixels por quadro
+            function cair() {
+                const posicaoAtual = parseFloat(pedra.style.top) || 0;
+                pedra.style.top = posicaoAtual + velocidadeQueda + "px";
+                requestAnimationFrame(cair);
+            }
+
+            cair();
+        }
+
+        // Crie pedras a cada intervalo de tempo
+        setInterval(criarPedra, 1000); // Cria uma pedra a cada segundo
+        </script>
+
+<div id="gameOver" style="display: none;">
+    <h2>Game Over! O lobisomem foi atingido por uma pedra.</h2>
+    <button id="restart">Reiniciar</button>
+</div>
 
 
         
@@ -145,5 +175,7 @@
           
 
     </div>
+
+    
 </body>
 </html>
